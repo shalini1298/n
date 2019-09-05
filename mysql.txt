@@ -1,0 +1,20 @@
+var express=require('express');
+var mysql=require('mysql');
+var app =express();
+const bodyparser=require('body-parser');
+app.use(bodyparser.json);
+var mysqlConnection=mysql.createConnection({
+    host:'localhost',
+    user:'root',
+    password:'selvamuthu',
+    database:'login'
+});
+
+mysqlConnection.connect((err)=>{
+    if(!err){
+        console.log('connected');
+    }else{
+        console.log('failed'+JSON.stringify(err,undefined,  2));
+    }
+})
+app.listen(3000);
