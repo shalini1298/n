@@ -1,0 +1,8 @@
+const db = require('../config/db.config.js');
+const Details = db.details;
+ 
+exports.findAll = (req, res) => {
+    Details.findAll().then(details => {   
+      res.send(details);
+    });
+  };
